@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid</title>
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    
+}
+
+.container {
+    position: relative;
+    width: 400px; 
+    height: 200px;
+    text-align: center;
+    background-color:rgb(50, 168, 194);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#yes:hover {
+    background-color: #45a049;
+}
+
+#no {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+}
+
+#no:hover {
+    background-color: #da190b;
+}
+</style>
+<body>
+    <div class="container">
+        
+        <p>Gender Test</p>
+        <p>“Are you a gay?🧐”</p>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <script>
+        document.getElementById('yes').addEventListener('click', function() {
+    alert("Ab mai kya hi bolu 😂");
+});
+
+document.getElementById('no').addEventListener('click', function() {
+    var noButton = document.getElementById('no');
+    var container = document.querySelector('.container');
+
+    var maxX = container.clientWidth - noButton.clientWidth;
+    var maxY = container.clientHeight - noButton.clientHeight;
+
+    var newX = Math.floor(Math.random() * maxX);
+    var newY = Math.floor(Math.random() * maxY);
+
+    // Ensure the button moves a significant distance
+    var currentX = noButton.offsetLeft;
+    var currentY = noButton.offsetTop;
+    
+    // Add minimum distance
+    while (Math.abs(newX - currentX) < 100) {
+        newX = Math.floor(Math.random() * maxX);
+    }
+
+    while (Math.abs(newY - currentY) < 100) {
+        newY = Math.floor(Math.random() * maxY);
+    }
+
+    noButton.style.left = newX + 'px';
+    noButton.style.top = newY + 'px';
+});
+    </script>
+</body>
+</html>
